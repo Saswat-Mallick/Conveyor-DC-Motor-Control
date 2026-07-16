@@ -5,6 +5,9 @@ Arduino-based conveyor system controlling a DC motor's speed (0-100%)
 and direction via potentiometer input, with real-time status displayed 
 on a 16x2 LCD. Built in TinkerCAD.
 
+## Link to the Demonstration
+https://www.tinkercad.com/things/iEMGIcU2h1Z-conveyor-dc-motor-control?sharecode=-7rSlNMiRFjRK_-pVbtBeYb4y6OBV70Wx7RTcNnn2PA
+
 ## Features
 - PWM-based speed control (0-255 duty cycle, mapped from potentiometer)
 - H-bridge (L293D) direction control

@@ -11,12 +11,13 @@ on a 16x2 LCD. Built in TinkerCAD.
 - Simulated closed-loop feedback (see Design Notes below)
 - Real-time LCD display of target vs. actual speed
 - Buzzer alert when target speed is reached
+- Backlight can be adjusted by potentiometer
 
 ## Hardware
 - Arduino Uno
 - L293D Motor Driver IC
 - DC Motor
-- Potentiometer (speed input) + Potentiometer (LCD contrast)
+- Potentiometer (speed input) + Potentiometer (Backlight brightness)
 - 16x2 LCD
 - Piezo buzzer
 - 9V battery (motor power) + Arduino 5V (logic power) — kept on 
@@ -43,6 +44,8 @@ of real issues worked through during build:
   until contrast was tuned)
 - Removed per-loop `lcd.clear()` calls causing display flicker, 
   replaced with fixed-position overwrites
+- Changed the connection of potentiometer from contrast pin(V0) to the led anode pin(LED+)
+  for backlight brightness
 
 Debugged with Claude (Anthropic) as a technical sounding board — 
 used for verifying circuit logic, tracing wiring issues, and 
@@ -52,14 +55,13 @@ Doubts like should this be connected here and there, what should be changed
 to fix the bug, can find error in my code was clarified by Claude).
 
 ## Known Quirks
-- **Contrast pot:** needs to be turned to (near) maximum for 
-  characters to actually display — backlight will look "on" 
-  regardless, so if the screen looks blank, check this first before 
-  assuming a wiring/code issue.
 - **The alert tone:** originally attempted a Rick Astley "Never 
   Gonna Give You Up" tune for the target-speed-reached alert. What 
   actually plays sounds nothing like it — but it's got character. 
   Consider it a bonus feature.
+- **Controlable backlight:** originally attempted to change the contrast of the text
+  but realised it is not possible. So I changed the backlight brightness so as 
+  to change the visibility of the text on LCD display.
 
 ## Files
 - `motor_control.ino` — main Arduino sketch
